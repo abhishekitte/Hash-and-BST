@@ -30,9 +30,12 @@ namespace HashTableandBST.cs
             myMapNode.Add("17", "paranoid");
             myMapNode.Add("18", "avoidable");
             myMapNode.Add("19", "situations");
-            //Console.WriteLine("Getting values by using {0}:{1}","4",myMapNode.Get("4"));
+            Console.WriteLine("Displaying elements of hashtable before removing node");
             myMapNode.Display();
-            //Console.WriteLine(myMapNode.CountFrequency("paranoid"));
+            //Console.WriteLine("Getting values by using {0}:{1}","18",myMapNode.Get("18"));
+            myMapNode.Remove("18");
+            Console.WriteLine("Displaying elements of hashtable after removing node");
+            myMapNode.Display();
             Console.ReadLine();
         }
     }

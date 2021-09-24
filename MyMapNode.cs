@@ -17,6 +17,7 @@ namespace HashTableandBST.cs
         private readonly int size;
         private readonly LinkedList<KeyValue<K, V>>[] items;
 
+        //Constructor to initialize 
         public MyMapNode(int size)
         {
             this.size = size;
@@ -58,6 +59,28 @@ namespace HashTableandBST.cs
             linkedList.AddLast(item);
         }
 
+        //Method to remove a value from hashtable
+        public void Remove(K key)
+        {
+            int position = GetArrayPosition(key);
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            bool itemFound = false;
+            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> item in linkedList)
+            {
+                if (item.Key.Equals(key))
+                {
+                    itemFound = true;
+                    foundItem = item;
+                }
+                if (itemFound)
+                {
+                    linkedList.Remove(foundItem);
+                    Console.WriteLine("Removed successfully with key" + foundItem.Key);
+                    break;
+                }
+            }
+        }
         //method to create a linkedlist,store values in it 
         protected LinkedList<KeyValue<K, V>> GetLinkedList(int position)
         {
